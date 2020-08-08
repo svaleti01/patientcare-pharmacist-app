@@ -1,4 +1,4 @@
-FROM node:stable as uibuilder
+FROM node:alpine as uibuilder
 RUN apk update
 WORKDIR /app
 COPY package.json /app/
@@ -7,7 +7,7 @@ RUN cd /app && npm install
 COPY .  /app
 RUN cd /app && ng build --prod
 
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged
 RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=uibuilder /app/dist /usr/share/nginx/html
