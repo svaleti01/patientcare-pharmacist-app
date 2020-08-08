@@ -7,7 +7,7 @@ RUN cd /app && npm install
 COPY .  /app
 RUN cd /app && ng build --prod
 
-FROM nginx/mainline
+FROM nginx:mainline
 RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=uibuilder /app/dist /usr/share/nginx/html
