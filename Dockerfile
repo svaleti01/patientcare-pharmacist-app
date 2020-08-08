@@ -1,4 +1,4 @@
-FROM node:alpine as uibuilder
+FROM node:stable as uibuilder
 RUN apk update
 WORKDIR /app
 COPY package.json /app/
