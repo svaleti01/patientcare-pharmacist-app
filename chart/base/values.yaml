@@ -10,7 +10,7 @@ image:
   repository: replace
   tag: replace
   pullPolicy: IfNotPresent
-  port: 4000
+  port: 80
 
 nameOverride: ""
 fullnameOverride: ""
@@ -42,6 +42,6 @@ vcsInfo:
 
 partOf: ""
 
-connectsTo: "pharmacist"
+connectsTo: "pharmacist-bff"
 
 runtime: "node"
