@@ -11,7 +11,6 @@ const QueryPillboxes = `
           userid
           consumed
           remaining
-          status
 			}
 	  	}
 	  `;
@@ -39,8 +38,7 @@ export class PillboxListComponent implements OnInit {
             new TableItem({data: pillbox.pillboxid}),
             new TableItem({data: pillbox.userid}),
             new TableItem({data: pillbox.consumed}),
-            new TableItem({data: pillbox.remaining}),
-            new TableItem({data: pillbox.status})
+            new TableItem({data: pillbox.remaining})
           ]
           this.model.addRow(row);
         });
@@ -48,8 +46,7 @@ export class PillboxListComponent implements OnInit {
           new TableHeaderItem({data: "Pillbox id"}),
           new TableHeaderItem({data: "Userid" }),
           new TableHeaderItem({data: "Consumed" }),
-          new TableHeaderItem({data: "Remaining" }),
-          new TableHeaderItem({data: "Status" })
+          new TableHeaderItem({data: "Remaining" })
         ];
         this.skeleton = false;
       });

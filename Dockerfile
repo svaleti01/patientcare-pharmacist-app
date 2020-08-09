@@ -6,10 +6,12 @@ RUN npm install @angular/cli -g
 RUN cd /app && npm install
 COPY .  /app
 RUN cd /app && ng build --prod
+RUN echo $(ls /app/dist)
 
 FROM nginx:mainline
 RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=uibuilder /app/dist /usr/share/nginx/html
+RUN echo $(ls /usr/share/nginx/html)
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
