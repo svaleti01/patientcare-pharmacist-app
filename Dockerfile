@@ -8,7 +8,7 @@ COPY .  /app
 RUN cd /app && ng build --prod
 RUN echo $(ls /app/dist)
 
-FROM nginx:mainline
+FROM nginx
 RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=uibuilder /app/dist /usr/share/nginx/html
