@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { request } from 'graphql-request';
 
-const BASE_URL = 'https://pharmacist-bff-arun205.sandbox-ocp43-one-176292-be5b1ee812fa4041cc73b6bbf969fc88-0000.eu-gb.containers.appdomain.cloud/graphql';
+const BASE_URL = 'http://istio-ingressgateway-patientcare-istio.sandbox-ocp43-one-176292-be5b1ee812fa4041cc73b6bbf969fc88-0000.eu-gb.containers.appdomain.cloud/pharmacistbff/graphql';
 
 const addPillbox = `mutation {
   addPillbox(userid: 5, status: "COMPLETED", consumed: 10,

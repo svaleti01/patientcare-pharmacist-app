@@ -25,6 +25,7 @@ import { AppSwitcher20Module } from '@carbon/icons-angular/lib/app-switcher/20';
 import { HeaderComponent } from './header/header.component';
 import { PillboxListComponent } from './pillbox-list/pillbox-list.component';
 import { PillboxAddComponent } from './pillbox-add/pillbox-add.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
 	declarations: [
@@ -50,7 +51,8 @@ import { PillboxAddComponent } from './pillbox-add/pillbox-add.component';
 		TableModule,
 		InputModule,
 		SelectModule,
-		ButtonModule
+		ButtonModule,
+		AppRoutingModule
 	],
 	bootstrap: [AppComponent]
 })
