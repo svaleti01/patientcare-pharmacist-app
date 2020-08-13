@@ -24,6 +24,7 @@ export class PillboxListComponent implements OnInit {
   
   public model = new TableModel();
   public skeleton = true;
+  names = ['John', 'Williams', 'Kane', 'Jackson', 'Maria', 'Alexa', 'David', 'Allan', 'George', 'Jim'];
 
   constructor() { }
 
@@ -34,9 +35,12 @@ export class PillboxListComponent implements OnInit {
         console.log(resp.pillboxes);
         let pillboxList = resp.pillboxes;
         pillboxList.forEach(pillbox => {
+		  let num = Math.floor(Math.random() * (10 - 1) + 1);
+          let name = this.names[num];
           let row = [
             new TableItem({data: pillbox.pillboxid}),
             new TableItem({data: pillbox.userid}),
+			new TableItem({data: name}),
             new TableItem({data: pillbox.consumed}),
             new TableItem({data: pillbox.remaining})
           ]
@@ -45,6 +49,7 @@ export class PillboxListComponent implements OnInit {
         this.model.header = [
           new TableHeaderItem({data: "Pillbox id"}),
           new TableHeaderItem({data: "Userid" }),
+	      new TableHeaderItem({data: "Name"}),
           new TableHeaderItem({data: "Consumed" }),
           new TableHeaderItem({data: "Remaining" })
         ];
